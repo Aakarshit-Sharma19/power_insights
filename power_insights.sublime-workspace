@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"User",
+				"UserSerializer\tclass"
+			],
+			[
+				"seria",
+				"serializer_class\tstatement"
+			],
+			[
+				"get",
+				"get_permissions\tfunction"
+			],
+			[
+				"permi",
+				"permission_classes\tstatement"
+			],
+			[
+				"rest",
+				"RESTRUCTUREDTEXT_FILTER_SETTINGS"
+			],
+			[
+				"as",
+				"as_view\tfunction"
+			],
+			[
+				"ob",
+				"ObtainAuthToken\tclass"
+			],
+			[
+				"auth",
+				"authtoken_views\tmodule"
+			],
+			[
+				"validat",
+				"validated_data\tparam"
+			],
+			[
+				"laz",
+				"gettext_lazy\tstatement"
+			],
+			[
 				"con",
 				"contrib\tmodule"
 			]
@@ -11,6 +51,18 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "from rest_framework import serializers\nfrom django.contrib.auth import get_user_model\n\nUser = get_user_model()\n\nclass UserSerializer(serializers.ModelSerializer):\n\n    password = serializers.CharField(write_only=True)\n\n    class Meta:\n        model = User\n        fields = (\n            'email',\n            'first_name',\n            'last_name',\n            'password'\n        )\n\n    def create(self, validated_data):\n        user = User.objects.create_user(**validated_data)\n        return user\n\n",
+			"file": "api/accounts/serializers.py",
+			"file_size": 497,
+			"file_write_time": 132630564391978942,
+			"settings":
+			{
+				"buffer_size": 498,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -24,12 +76,44 @@
 		"selected_items":
 		[
 			[
+				"format",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"show",
+				"Anaconda: Show error list"
+			],
+			[
 				"theme",
-				"UI: Select Theme"
+				"Material Theme: Configuration"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"go ",
+				"Anaconda: Goto object definition"
+			],
+			[
+				"rename",
+				"Anaconda: Rename object under cursor"
+			],
+			[
+				"settings",
+				"Preferences: Settings"
+			],
+			[
+				"show ",
+				"Anaconda: Show error list"
+			],
+			[
+				"ter",
+				"Terminal: Open in project folder"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
 			],
 			[
 				"package",
@@ -61,17 +145,31 @@
 	"expanded_folders":
 	[
 		"/home/aakarshit/Projects/Django/power_insights",
+		"/home/aakarshit/Projects/Django/power_insights/api",
+		"/home/aakarshit/Projects/Django/power_insights/api/accounts",
 		"/home/aakarshit/Projects/Django/power_insights/power_insights"
 	],
 	"file_history":
 	[
+		"/home/aakarshit/Projects/Django/power_insights/api/accounts/views.py",
+		"/home/aakarshit/Projects/Django/power_insights/api/accounts/urls.py",
+		"/home/aakarshit/Projects/Django/power_insights/api/accounts/serializers.py",
+		"/home/aakarshit/Projects/Django/power_insights/power_insights/urls.py",
 		"/home/aakarshit/Projects/Django/power_insights/power_insights/settings.py",
+		"/home/aakarshit/Projects/Django/power_insights/api/urls.py",
+		"/home/aakarshit/Projects/Django/power_insights/env/lib/python3.8/site-packages/rest_framework/authtoken/views.py",
+		"/home/aakarshit/Projects/Django/power_insights/api/accounts/apps.py",
+		"/home/aakarshit/Projects/Django/power_insights/api/accounts/models.py",
+		"/home/aakarshit/Projects/Django/power_insights/env/lib/python3.8/site-packages/django/contrib/auth/base_user.py",
+		"/home/aakarshit/Projects/Django/power_insights/api/models.py",
+		"/home/aakarshit/Projects/Django/power_insights/api/accounts/__init__.py",
+		"/home/aakarshit/Projects/Django/power_insights/power_insights/asgi.py",
 		"/home/aakarshit/Projects/Django/power_insights/power_insights/power_insights.sublime-project",
 		"/home/aakarshit/Projects/React/hello-react/src/index.js"
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
@@ -102,18 +200,50 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "api/accounts/serializers.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 498,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								497,
+								497
+							]
+						],
+						"settings":
+						{
+							"highlight_line": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 44.0
 	},
 	"input":
 	{
-		"height": 32.0
+		"height": 52.0
 	},
 	"layout":
 	{
@@ -146,7 +276,7 @@
 	"project": "power_insights.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 84.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -155,6 +285,38 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"urls",
+				"api/accounts/urls.py"
+			],
+			[
+				"views",
+				"api/accounts/views.py"
+			],
+			[
+				"urls ",
+				"api/accounts/urls.py"
+			],
+			[
+				"views ",
+				"api/accounts/views.py"
+			],
+			[
+				"set",
+				"power_insights/settings.py"
+			],
+			[
+				"seria",
+				"api/accounts/serializers.py"
+			],
+			[
+				"settings",
+				"power_insights/settings.py"
+			],
+			[
+				"init",
+				"api/accounts/__init__.py"
+			]
 		],
 		"width": 0.0
 	},
@@ -179,13 +341,17 @@
 	"selected_group": 0,
 	"settings":
 	{
+		"_vintageous_last_buffer_search": "api.accoun",
+		"_vintageous_last_buffer_search_command": "nv_vi_question_mark",
+		"_vintageous_last_char_search": "n",
+		"_vintageous_last_char_search_command": "vi_big_f",
 		"_vintageous_reset_during_init": true
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 210.0,
+	"side_bar_width": 248.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

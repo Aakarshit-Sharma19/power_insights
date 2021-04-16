@@ -8,6 +8,11 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+class LogoutView(generics.GenericAPIView):
+    def post(self, request, format=None):
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
+
 class UserRecordView(APIView):
     """
     API View to create or get a list of all the registered
