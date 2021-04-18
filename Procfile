@@ -1,1 +1,1 @@
-web:gunicorn power_insights.wsgi
+web: gunicorn power_insights.wsgi
