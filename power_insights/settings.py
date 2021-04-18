@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'api',
-    'api.accounts'
+    'api.accounts',
+    'home'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -144,3 +145,5 @@ AUTH_USER_MODEL = 'accounts.User'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
+
+STATIC_ROOT = BASE_DIR / 'static'
