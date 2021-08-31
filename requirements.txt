@@ -8,6 +8,7 @@ colorama==0.4.3
 contextlib2==0.6.0
 distlib==0.3.0
 distro==1.4.0
+dj-database-url==0.5.0
 Django==3.2
 djangorestframework==3.12.4
 flake8==3.9.1
@@ -21,9 +22,11 @@ msgpack==0.6.2
 packaging==20.3
 pep517==0.8.2
 progress==1.5
+psycopg2==2.9.1
 pycodestyle==2.7.0
 pyflakes==2.3.1
 pyparsing==2.4.6
+python-dotenv==0.19.0
 pytoml==0.1.21
 pytz==2021.1
 requests==2.22.0

@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dotenv
+dotenv.load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=l&mhi32h9t+ra&4ns^752(h4dk!$-4lm0ducg3%v+af2@*pr4'
+SECRET_KEY = os.getenv(
+    'SECRET_KEY', 'django-insecure-=l&mhi32h9t+ra&4ns^752(h4dk!$-4lm0ducg3%v+af2@*pr4')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,7 +47,7 @@ INSTALLED_APPS = [
     'whitenoise',
 
     'api',
-    'api.accounts',
+    'accounts',
     'home'
 ]
 MIDDLEWARE = [
@@ -84,12 +88,24 @@ WSGI_APPLICATION = 'power_insights.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+try:
+    db_url = os.getenv('DATABASE_URL')
+    if db_url:
+        import dj_database_url
+        DATABASES['default'] = dj_database_url.config(
+            default=db_url, conn_max_age=0, ssl_require=True)
+
+except ImportError:
+    print('DATABASE: DEFAULT')
+print("USING DATABASE", DATABASES.get('default').get('ENGINE'))
 
 
 # Password validation

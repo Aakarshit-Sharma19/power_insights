@@ -8,10 +8,12 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class LogoutView(generics.GenericAPIView):
     def post(self, request, format=None):
         request.user.auth_token.delete()
         return Response(status=status.HTTP_200_OK)
+
 
 class UserRecordView(APIView):
     """
@@ -48,6 +50,7 @@ class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer = UserSerializer(queryset, many=False)
     serializer_class = UserSerializer
+
     def get_permissions(self):
         if self.request.method == 'POST':
             self.permission_classes = (AllowAny,)
