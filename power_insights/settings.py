@@ -101,7 +101,7 @@ try:
     if db_url:
         import dj_database_url
         DATABASES['default'] = dj_database_url.config(
-            default=db_url, conn_max_age=0, ssl_require=True)
+            default=db_url, conn_max_age=0, ssl_require=False)
 
 except ImportError:
     print('DATABASE: DEFAULT')
