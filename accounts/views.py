@@ -1,10 +1,11 @@
-from .serializers import UserSerializer
-from rest_framework.views import APIView
+from django.contrib.auth import get_user_model
 from rest_framework import generics
-from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAdminUser, AllowAny
-from django.contrib.auth import get_user_model
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from .serializers import UserSerializer
 
 User = get_user_model()
 
@@ -55,4 +56,4 @@ class RegisterView(generics.CreateAPIView):
         if self.request.method == 'POST':
             self.permission_classes = (AllowAny,)
 
-        return super(generics.CreateAPIView, self).get_permissions()
+        return super().get_permissions()

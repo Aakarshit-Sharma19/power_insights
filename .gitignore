@@ -2,4 +2,4 @@ env/
 home/templates/home
 **.pyc
 static/
-__pycache__/
+__pycache__

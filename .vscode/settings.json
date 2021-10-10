@@ -1,3 +1,6 @@
 {
-    "python.pythonPath": "/home/aakarshit/.local/share/virtualenvs/power_insights-YKOsVhj6/bin/python"
+  "python.pythonPath": "/home/aakarshit/Application/dev/miniconda3/envs/tf2/bin/python",
+  "python.linting.flake8Enabled": false,
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true
 }
