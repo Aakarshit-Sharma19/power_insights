@@ -1,51 +1,85 @@
 from typing import Dict
 from rest_framework.generics import (ListAPIView)
+from rest_framework.response import Response, responses
 from rest_framework.permissions import IsAuthenticated
-from django.db.models import F, Sum
+from rest_framework import status
+from django.db.models import F, Sum, query
 from api.models import Record
-from api.serializers import ConsumptionRecordSerializer
+from api.serializers import ConsumptionSerializer, DailyConsumptionSerializer, MonthlyConsumptionSerializer
 from api.exceptions import DateNotProvided
 from django.contrib.auth import get_user_model
-
+import datetime
 
 # Create your views here.
 User = get_user_model()
 
 
 class ConsumptionView(ListAPIView):
-    serializer_class = ConsumptionRecordSerializer
+    serializer_class = ConsumptionSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            params = self.request.GET
+            if not 'date' in params:
+                if 'month' not in params:
+                    print(1)
+                    return MonthlyConsumptionSerializer
+
+                else:
+                    print(2)
+                    return DailyConsumptionSerializer
+        print(3)
+        return super().get_serializer_class()
 
     def get_queryset(self):
         '''
-        For any params only day is optional but month and year are not
+        GET params req
         '''
         params = self.request.GET
         month = params.get('month', None)
         year = params.get('year', None)
-        day = params.get('day', None)
-        get_total = params.get('get_total', None) == 'true'
+        date = params.get('date', None)
+        # get_total = params.get('get_total', None) == 'true'
         filters: Dict = {
             'user_id': self.request.user.pk
         }
 
-        if not month or not year:
+        if not year and not date:
             raise DateNotProvided
         if year:
             filters['datetime__year'] = int(year)
         if month:
             filters['datetime__month'] = int(month)
-        if day:
-            filters['datetime__day'] = int(day)
+        if date:
+            filters['datetime__date'] = date
             return Record.objects.filter(
                 **filters
             ).order_by('datetime')
 
-        return Record.objects.filter(
-            **filters
-        ).values(
-            date=F('datetime__date')
-        ).annotate(
-            Sum('consumption')
-        ).order_by(
-            'datetime__date')
+        if month:
+            return Record.objects.filter(
+                **filters
+            ).values(
+                date=F('datetime__date'),
+            ).annotate(
+                consumption=Sum('consumption')
+            ).order_by(
+                'datetime__date')
+        else:
+            return Record.objects.filter(
+                **filters
+            ).values(
+                month=F('datetime__month'),
+            ).annotate(
+                consumption=Sum('consumption')
+            ).order_by(
+                'datetime__month')
+
+    def get(self, request, *args, **kwargs):
+        try:
+            return super().get(request, *args, **kwargs)
+        except DateNotProvided as error:
+            return Response({
+                'message': error.detail
+            }, status=error.status)
