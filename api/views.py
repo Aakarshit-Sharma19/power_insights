@@ -3,6 +3,7 @@ from rest_framework.generics import (ListAPIView)
 from rest_framework.response import Response, responses
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
 from django.db.models import F, Sum, query
 from api.models import Record
 from api.serializers import ConsumptionSerializer, DailyConsumptionSerializer, MonthlyConsumptionSerializer
@@ -83,3 +84,12 @@ class ConsumptionView(ListAPIView):
             return Response({
                 'message': error.detail
             }, status=error.status)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def verify_token(request):
+    '''
+    Verifying 
+    '''
+    return Response(status=status.HTTP_204_NO_CONTENT)

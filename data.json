@@ -1,0 +1,128 @@
+[
+    {
+        "model": "api.record",
+        "pk": 1,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-08-28T05:12:56.181Z",
+            "consumption": "8.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 2,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-08-28T05:12:56.181Z",
+            "consumption": "11.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 3,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-08-28T05:12:56.181Z",
+            "consumption": "23.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-08-28T05:12:56.181Z",
+            "consumption": "123.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 5,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-08-28T06:12:56.181Z",
+            "consumption": "11.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 6,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-08-28T07:12:56.181Z",
+            "consumption": "23.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 7,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-08-28T08:12:56.181Z",
+            "consumption": "123.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 8,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-09-28T05:12:56.181Z",
+            "consumption": "8.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 9,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-09-28T05:12:56.181Z",
+            "consumption": "11.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 10,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-09-28T05:12:56.181Z",
+            "consumption": "23.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 11,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-09-28T05:12:56.181Z",
+            "consumption": "123.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 12,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-09-28T06:12:56.181Z",
+            "consumption": "11.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 13,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-09-28T07:12:56.181Z",
+            "consumption": "23.000"
+        }
+    },
+    {
+        "model": "api.record",
+        "pk": 14,
+        "fields": {
+            "user": 4,
+            "datetime": "2021-09-28T08:12:56.181Z",
+            "consumption": "123.000"
+        }
+    }
+]
