@@ -18,6 +18,7 @@ class DailyConsumptionSerializer(serializers.Serializer):
         max_digits=15, decimal_places=3)
 
 
+
 class MonthlyConsumptionSerializer(serializers.Serializer):
     month = serializers.IntegerField(min_value=1, max_value=12)
     consumption = serializers.DecimalField(
